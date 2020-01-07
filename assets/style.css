@@ -2,3 +2,20 @@
     box-sizing: border-box;
     font-family: 'Ubuntu', sans-serif;
 }
+
+body {
+    max-width: 100%;
+    margin: 0;
+}
+
+header {
+    max-width: 100%;
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    background-color: blueviolet;
+}
+
+header h1 {
+    margin: 0;
+}
