@@ -43,14 +43,14 @@ nav li {
     padding: 5px;
 }
 
-#converter-space {
+#converterSpace {
     width: 80%;
     margin: 0;
     padding: 10px 0;
     float: right;
 }
 
-#converter-space h2 {
+#converterSpace h2 {
     margin: 0;
 }
 
