@@ -4,6 +4,7 @@
 <head>
     <title>Convert</title>
     <link rel="stylesheet" href="assets/style.css">
+    <script src="assets/script.js"></script>
 </head>
 
 <body>
@@ -12,34 +13,27 @@
     </header>
     <main>
         <nav>
-            <ul>
-                <li>Panjang</li>
-                <li>Massa</li>
-                <li>Waktu</li>
-                <li>Temperatur</li>
-                <li>Sudut</li>
-                <li>Luas</li>
-                <li>Volume</li>
-                <li>Data</li>
+            <ul id="optionQuantity" onclick="">
+                <li value="panjang"><a href="#">Panjang</a></li>
+                <li value="massa"><a href="#">Massa</a></li>
+                <li value="waktu"><a href="#">Waktu</a></li>
+                <li value="temperatur"><a href="#">Temperatur</a></li>
+                <li value="sudut"><a href="#">Sudut</a></li>
+                <li value="luas"><a href="#">Luas</a></li>
+                <li value="volume"><a href="#">Volume</a></li>
+                <li value="data"><a href="#">Data</a></li>
             </ul>
         </nav>
         <div id="converterSpace">
-            <div id="converterName">
-                <h2>Konversi Panjang</h2>
+            <div>
+                <h2 id="quantityTitle">Konversi Panjang</h2>
             </div>
             <div id="converterTop" class="converter">
                 <div id="inputTop" class="input">
                     <input type="number" value="1">
                 </div>
-                <div id="optionTop" class="option">
-                    <select>
-                        <option>Kilometer</option>
-                        <option>Meter</option>
-                        <option>Milimeter</option>
-                        <option>Inci</option>
-                        <option>Kaki</option>
-                        <option>Mil</option>
-                        <option>Yard</option>
+                <div class="option">
+                    <select id="optionTop">
                     </select>
                 </div>
             </div>
@@ -47,16 +41,9 @@
                 <div id="inputBottom" class="input">
                     <input type="number">
                 </div>
-                <div id="optionBottom" class="option">
-                    <select>
-                        <option>Kilometer</option>
-                        <option>Meter</option>
-                        <option>Milimeter</option>
-                        <option>Inci</option>
-                        <option>Kaki</option>
-                        <option>Mil</option>
-                        <option>Yard</option>
-                    </select>
+                <div class="option">
+                    <select id="optionBottom">
+                    </select id="optionBottom">
                 </div>
             </div>
             <div id="formula">
