@@ -3,8 +3,8 @@
 
 <head>
     <title>Convert</title>
-    <link rel="stylesheet" href="assets/style.css">
-    <script src="assets/script.js"></script>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -13,49 +13,146 @@
     </header>
     <main>
         <nav>
-            <ul id="optionQuantity" onclick="">
-                <li value="panjang"><a href="#">Panjang</a></li>
-                <li value="massa"><a href="#">Massa</a></li>
-                <li value="waktu"><a href="#">Waktu</a></li>
-                <li value="temperatur"><a href="#">Temperatur</a></li>
-                <li value="sudut"><a href="#">Sudut</a></li>
-                <li value="luas"><a href="#">Luas</a></li>
-                <li value="volume"><a href="#">Volume</a></li>
-                <li value="data"><a href="#">Data</a></li>
+            <ul id="listQuantity">
+                <a href="#" onclick="loadQuantity('panjang'); return false;">
+                    <li id="item0" class="" value="panjang">Panjang</li>
+                </a>
+                <a href="#" onclick="loadQuantity('massa'); return false;">
+                    <li id="item1" class="" value="massa">Massa</li>
+                </a>
+                <a href="#" onclick="loadQuantity('waktu'); return false;">
+                    <li id="item2" class="" value="waktu">Waktu</li>
+                </a>
+                <a href="#" onclick="loadQuantity('temperatur'); return false;">
+                    <li id="item3" class="" value="temperatur">Temperatur</li>
+                </a>
+                <a href="#" onclick="loadQuantity('sudut'); return false;">
+                    <li id="item4" class="" value="sudut">Sudut</li>
+                </a>
+                <a href="#" onclick="loadQuantity('luas'); return false;">
+                    <li id="item5" class="" value="luas">Luas</li>
+                </a>
+                <a href="#" onclick="loadQuantity('volume'); return false;">
+                    <li id="item6" class="" value="volume">Volume</li>
+                </a>
+                <a href="#" onclick="loadQuantity('data'); return false;">
+                    <li id="item7" class="" value="data">Data</li>
+                </a>
             </ul>
         </nav>
         <div id="converterSpace">
             <div>
-                <h2 id="quantityTitle">Konversi Panjang</h2>
+                <h2 id="quantityTitle"></h2>
+            </div>
+            <div>
+                <select id="optionQuantity" onchange="loadQuantity(this.value)">
+                <option value="panjang">Panjang</option>
+                <option value="massa">Massa</option>
+                <option value="waktu">Waktu</option>
+                <option value="temperatur">Temperatur</option>
+                <option value="sudut">Sudut</option>
+                <option value="luas">Luas</option>
+                <option value="volume">Volume</option>
+                <option value="data">Data</option>
+            </select>
             </div>
             <div id="converterTop" class="converter">
-                <div id="inputTop" class="input">
-                    <input type="number" value="1">
+                <div class="input">
+                    <input id="inputTop" type="number" value="1" oninput="convert();">
                 </div>
                 <div class="option">
-                    <select id="optionTop">
+                    <select id="optionTop" onchange="convert();">
                     </select>
                 </div>
             </div>
             <div id="converterBottom" class="converter">
-                <div id="inputBottom" class="input">
-                    <input type="number">
+                <div class="input">
+                    <input id="inputBottom" type="number" value oninput="convertBack();">
                 </div>
                 <div class="option">
-                    <select id="optionBottom">
-                    </select id="optionBottom">
+                    <select id="optionBottom" onchange="convert();">
+                    </select>
                 </div>
             </div>
             <div id="formula">
                 <h2>Formula</h2>
                 <p>The Formula goes here</p>
             </div>
+            <!--Konten LIFF v2-->
+
+            <div id="liffAppContent">
+                <!-- ACTION BUTTONS -->
+                <div class="buttonGroup">
+                    <div class="buttonRow">
+                        <button id="openWindowButton" class="btn btn-success btn-small">Open External Window</button>
+                        <button id="closeWindowButton" class="btn btn-danger btn-small">Close LIFF App</button>
+                    </div>
+                </div>
+
+                <!-- LIFF DATA -->
+                <div id="liffData">
+                    <h3 id="liffDataHeader" class="textLeft">Informasi:</h3>
+                    <table>
+                        <tr>
+                            <th>isInClient : </th>
+                            <td id="isInClient" class="textLeft"></td>
+                        </tr>
+                        <tr>
+                            <th>isLoggedIn : </th>
+                            <td id="isLoggedIn" class="textLeft"></td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- LOGIN LOGOUT BUTTONS -->
+                <div class="buttonGroup">
+                    <button id="liffLoginButton" class="btn btn-success btn-small">Log in</button>
+                    <button id="liffLogoutButton" class="btn btn-warning btn-small">Log out</button>
+                </div>
+                <div id="statusMessage">
+                    <div id="isInClientMessage"></div>
+                    <div id="apiReferenceMessage">
+                        <p>Available LIFF methods vary depending on the browser you use to open the LIFF app.</p>
+                        <p>Please refer to the <a href="https://developers.line.biz/en/reference/liff/#initialize-liff-app">API reference
+                            page</a> for more information.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- LIFF ID ERROR -->
+            <div id="liffIdErrorMessage" class="hidden">
+                <p>You have not assigned any value for LIFF ID.</p>
+                <p>If you are running the app using Node.js, please set the LIFF ID as an environment variable in your Heroku account follwing the below steps: </p>
+                <code id="code-block">
+                <ol>
+                    <li>Go to `Dashboard` in your Heroku account.</li>
+                    <li>Click on the app you just created.</li>
+                    <li>Click on `Settings` and toggle `Reveal Config Vars`.</li>
+                    <li>Set `MY_LIFF_ID` as the key and the LIFF ID as the value.</li>
+                    <li>Your app should be up and running. Enter the URL of your app in a web browser.</li>
+                </ol>
+            </code>
+                <p>If you are using any other platform, please add your LIFF ID in the <code>index.html</code> file.</p>
+                <p>For more information about how to add your LIFF ID, see <a href="https://developers.line.biz/en/reference/liff/#initialize-liff-app">Initializing the LIFF
+                    app</a>.</p>
+            </div>
+            <!-- LIFF INIT ERROR -->
+            <div id="liffInitErrorMessage" class="hidden">
+                <p>Something went wrong with LIFF initialization.</p>
+                <p>LIFF initialization can fail if a user clicks "Cancel" on the "Grant permission" screen, or if an error occurs in the process of <code>liff.init()</code>.
+            </div>
+            <!-- NODE.JS LIFF ID ERROR -->
+            <div id="nodeLiffIdErrorMessage" class="hidden">
+                <p>Unable to receive the LIFF ID as an environment variable.</p>
+            </div>
+
         </div>
     </main>
     <footer>
-        <p>Created by Dian Yehezkiel</p>
-        <p>Find me on Facebook, Instagram, and Twitter</p>
+        <p>Created for dicoding LINE LIFF Submission</p>
+        <p>Find me on <a href="#">Facebook</a>, <a href="#">Instagram</a>, and <a href="#">Twitter</a></p>
     </footer>
 </body>
+<script src="script.js"></script>
+<script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+<script src="liff-starter.js"></script>
 
 </html>
