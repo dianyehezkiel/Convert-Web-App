@@ -3,6 +3,10 @@
     font-family: 'Ubuntu', sans-serif;
 }
 
+html {
+    background-color: #f4f4f4;
+}
+
 body {
     min-width: 100%;
     margin: 0;
@@ -11,9 +15,11 @@ body {
 header {
     width: 100%;
     margin: 0;
+    top: 0px;
+    position: sticky;
     padding: 10px 0;
     text-align: center;
-    background-color: blueviolet;
+    background-color: #ff7315;
 }
 
 header h1 {
@@ -23,6 +29,7 @@ header h1 {
 main {
     width: 945px;
     margin: 10px auto;
+    padding: 0 0 54px 0;
 }
 
 nav {
@@ -45,7 +52,7 @@ nav li {
 }
 
 nav li:hover {
-    background-color: burlywood;
+    background-color: #ffa259;
 }
 
 a {
@@ -54,7 +61,7 @@ a {
 }
 
 .selected {
-    background-color: burlywood;
+    background-color: #ffa259;
 }
 
 #optionQuantity {
@@ -71,7 +78,7 @@ a {
 #converterSpace {
     width: 80%;
     margin: 0;
-    padding: 10px 0;
+    padding: 10px 0 54px 0;
     float: right;
 }
 
@@ -128,12 +135,48 @@ footer {
     margin: 0;
     padding: 5px 0;
     text-align: center;
-    background-color: blueviolet;
+    background-color: #ff7315;
 }
 
 footer p {
     margin: 4px auto;
     font-size: 14px;
+}
+
+.buttonGroup {
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+}
+
+button {
+    cursor: pointer;
+    font-size: 20px;
+    width: 150px;
+    height: 46px;
+    margin: 0 5px;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 1px;
+    background-color: #ffa259;
+}
+
+.buttonCollumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonCollumn button {
+    width: 310px;
+    margin: 5px auto;
+}
+
+#liffLoginButton {
+    background-color: #91bd3a;
+}
+
+#liffLogoutButton {
+    background-color: #fa4252;
 }
 
 #code-block {
@@ -157,12 +200,11 @@ footer p {
     text-align: left;
 }
 
-.buttonGroup {
-    position: relative;
-    top: 20px;
+.hidden {
+    display: none;
 }
 
-.hidden {
+#liffData {
     display: none;
 }
 

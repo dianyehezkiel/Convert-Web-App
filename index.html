@@ -5,6 +5,10 @@
     <title>Convert</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
 </head>
 
 <body>
@@ -74,18 +78,15 @@
                     </select>
                 </div>
             </div>
-            <div id="formula">
-                <h2>Formula</h2>
-                <p>The Formula goes here</p>
-            </div>
+
             <!--Konten LIFF v2-->
 
             <div id="liffAppContent">
                 <!-- ACTION BUTTONS -->
                 <div class="buttonGroup">
-                    <div class="buttonRow">
-                        <button id="openWindowButton" class="btn btn-success btn-small">Open External Window</button>
-                        <button id="closeWindowButton" class="btn btn-danger btn-small">Close LIFF App</button>
+                    <div class="buttonCollumn">
+                        <button id="openWindowButton">Open External Window</button>
+                        <button id="closeWindowButton">Close LIFF App</button>
                     </div>
                 </div>
 
@@ -105,8 +106,8 @@
                 </div>
                 <!-- LOGIN LOGOUT BUTTONS -->
                 <div class="buttonGroup">
-                    <button id="liffLoginButton" class="btn btn-success btn-small">Log in</button>
-                    <button id="liffLogoutButton" class="btn btn-warning btn-small">Log out</button>
+                    <button id="liffLoginButton">Log in</button>
+                    <button id="liffLogoutButton">Log out</button>
                 </div>
                 <div id="statusMessage">
                     <div id="isInClientMessage"></div>
@@ -122,14 +123,14 @@
                 <p>You have not assigned any value for LIFF ID.</p>
                 <p>If you are running the app using Node.js, please set the LIFF ID as an environment variable in your Heroku account follwing the below steps: </p>
                 <code id="code-block">
-                <ol>
-                    <li>Go to `Dashboard` in your Heroku account.</li>
-                    <li>Click on the app you just created.</li>
-                    <li>Click on `Settings` and toggle `Reveal Config Vars`.</li>
-                    <li>Set `MY_LIFF_ID` as the key and the LIFF ID as the value.</li>
-                    <li>Your app should be up and running. Enter the URL of your app in a web browser.</li>
-                </ol>
-            </code>
+                    <ol>
+                        <li>Go to `Dashboard` in your Heroku account.</li>
+                        <li>Click on the app you just created.</li>
+                        <li>Click on `Settings` and toggle `Reveal Config Vars`.</li>
+                        <li>Set `MY_LIFF_ID` as the key and the LIFF ID as the value.</li>
+                        <li>Your app should be up and running. Enter the URL of your app in a web browser.</li>
+                    </ol>
+                </code>
                 <p>If you are using any other platform, please add your LIFF ID in the <code>index.html</code> file.</p>
                 <p>For more information about how to add your LIFF ID, see <a href="https://developers.line.biz/en/reference/liff/#initialize-liff-app">Initializing the LIFF
                     app</a>.</p>
